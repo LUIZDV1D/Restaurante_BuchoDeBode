@@ -13,6 +13,12 @@
 	}
 	}
 
+	if (isset($_GET['opc'])) {
+		if ($_GET['opc'] == 'carda') {
+			header('location:cadastroCardapio.php');
+		}
+	}
+
 ?>
 <!DOCTYPE html>
 <html>
@@ -89,9 +95,9 @@
 			<li id="icon-close-menu"><i style="font-size: 25px; padding: 10px 10px; cursor: pointer; color: #B22222;" class="fa fa-bars"></i></li>
 			<li><h3 style="text-align: center; color: white; padding: 5px 10px;"><?php echo $_SESSION['Administrador'];?></h3><h4 style="text-align: center; color: white; padding: 5px 10px 30px;"><a href="?sair=s">Sair</a></h4></li>
 			<li id="home"><a href="">Home</a></li>
-			<li><a href="#res">Reservas</a></li>
-			<li><a href="#carda">Cardápio</a></li>
-			<li><a href="#"><i class="fas fa-angle-down"></i> Atrações</a></li>
+			<li><a href="?opc=res">Reservas</a></li>
+			<li><a href="?opc=carda">Cardápio</a></li>
+			<li><a href="?opc=at"><i class="fas fa-angle-down"></i> Atrações</a></li>
 		</ul>
 	</div>
 	<div class="menuzinho">

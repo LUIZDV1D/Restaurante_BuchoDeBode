@@ -22,7 +22,7 @@
 
         <style type="text/css">
         	body {
-        		background: url('fundo.jpg');
+        		background: url('img/fundo.jpg');
         	}
         	.titulo-accordion {
         		color: white;

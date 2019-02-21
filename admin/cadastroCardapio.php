@@ -3,6 +3,11 @@
 include_once 'CardapioDAO.php';
 include_once 'Cardapio.php';
 
+if (isset($_GET['o'])) {
+	if ($_GET['o'] == 'voltar') {
+		header('location:admin.php');
+	}
+}
 ?>
 
 <!DOCTYPE html>
@@ -43,6 +48,8 @@ include_once 'Cardapio.php';
 				<br>
 				<button style="cursor: pointer;" type="submit">Cadastrar</button>
 			</form> 
+				<br>
+				<a href="?o=voltar"><button style="cursor: pointer;" type="submit">Voltar</button></a>
 		</center>
 	</div>
 </div>
