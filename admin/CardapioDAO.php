@@ -29,6 +29,17 @@ class CardapioDAO {
 			echo "<script>alert('não massa');</script>";
 		}
 	}
+
+	public function ListarPratos() {
+		$con = new Conexao();
+
+		$stmt = $con->Con();
+
+		$sql = $stmt->prepare("SELECT * FROM cardapio ORDER BY nome_comida ASC");
+		$sql->execute();
+
+		return $sql->fetchAll();
+	}
 }
 
 ?>

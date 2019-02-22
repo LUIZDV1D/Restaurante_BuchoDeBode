@@ -2,7 +2,7 @@
 
 body {
 	font-family: arial;
-	background-color: #FF4500;
+	background-color: tomato;
 }
 
 .container {
@@ -86,7 +86,7 @@ body {
 	border-radius: 5px;
 	padding: 10px 20px;
 	border: 0px solid black;
-	margin-left: 15%;	
+	margin-left: 30%;	
 }
 
 .botao-danger:hover {
