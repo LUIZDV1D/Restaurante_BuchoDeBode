@@ -13,13 +13,8 @@
 	}
 	}
 
-	if (isset($_GET['opc'])) {
-		if ($_GET['opc'] == 'carda') {
-			header('location:cadastroCardapio.php');
-		}
-	}
-
 ?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -27,10 +22,12 @@
 	<meta charset='utf-8'>
 		<link rel="stylesheet" type="text/css" href="css/style.css">
 		<link rel="stylesheet" href="css/animate.css">
-		<script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+		<!-- <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>-->
+		<script src="js/jquery-3.3.1.min.js"></script>
 		<script src="js/wow.min.js"></script>
 		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
-        <script>
+        <link rel="stylesheet" type="text/css" href="css/fontawesome.css">
+		<script>
             new WOW().init();
         </script>
 
@@ -70,7 +67,7 @@
 			.menuzinho {
 				display: none;
 			}
-
+			
 			#me {
 				display: none;
 			}
@@ -79,8 +76,9 @@
 				display: block;
 				background: #333;
 				width: 5%;
-				height: 100vh;
+				height: 9vh;
 				float: left;
+				border-radius: 5px;
 			}
 
 			#icon-close-menu {
@@ -94,10 +92,11 @@
 		<ul>
 			<li id="icon-close-menu"><i style="font-size: 25px; padding: 10px 10px; cursor: pointer; color: #B22222;" class="fa fa-bars"></i></li>
 			<li><h3 style="text-align: center; color: white; padding: 5px 10px;"><?php echo $_SESSION['Administrador'];?></h3><h4 style="text-align: center; color: white; padding: 5px 10px 30px;"><a href="?sair=s">Sair</a></h4></li>
-			<li id="home"><a href="">Home</a></li>
+			<li id="home"><a href="admin.php">Home</a></li>
 			<li><a href="?opc=res">Reservas</a></li>
-			<li><a href="?opc=carda">Cardápio</a></li>
-			<li><a href="?opc=at"><i class="fas fa-angle-down"></i> Atrações</a></li>
+			<li><a href="?opc=carda">Cadastrar Pratos</a></li>
+			<li><a href="?opc=lpratos">Lista de Pratos</a></li>
+			<li><a href="?opc=at">Atrações</a></li>
 		</ul>
 	</div>
 	<div class="menuzinho">
@@ -107,7 +106,18 @@
 	</div>
 
 	<div>
-		
+		<?php
+
+			if (isset($_GET['opc'])) {
+				if ($_GET['opc'] == 'carda') {
+					include('cadastroCardapio.php');
+				}
+				if ($_GET['opc'] == 'lpratos') {
+					include('listaPratos.php');
+				}
+			}
+
+		?>
 	</div>
 </body>
 </html>

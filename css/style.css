@@ -136,7 +136,8 @@ body {
 .botao-default:hover {
 	position: absolute;
 	transition: 0.09s;
-	background-color: #0000FF;
+	background-color: #0000FF
+	;
 	color: white;
 	border-radius: 5px;
 	padding: 10px 20px;
