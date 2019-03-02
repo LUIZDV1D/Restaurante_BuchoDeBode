@@ -65,6 +65,9 @@
         if ($_GET['opic'] == 'rese') {
           include 'reserva.php';
         }
+        if ($_GET['opic'] == 'reE') {
+          include 'reservaE.php';
+        }
       }else{
           echo "<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>";
         }

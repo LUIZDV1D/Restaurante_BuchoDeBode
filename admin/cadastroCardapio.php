@@ -14,7 +14,6 @@ if (isset($_GET['o'])) {
 <html>
 <head>
 	<title>Cadastrar Cardápio</title>
-	<link rel="stylesheet" type="text/css" href="css/style.css">
 </head>
 <body>
 

@@ -41,6 +41,37 @@
                 </script>";
             }
         }
+
+        public function AtualizarME($i) {
+            $co = new Conexao();
+    
+            $query = $co->Con();
+    
+            $preparar = $query->prepare("UPDATE mesas SET nome_reservista = ?, data = ?,
+            status = ? WHERE id = ?");
+    
+            $nr = "";
+            $dt = "";
+            $st = "naoreservada";
+            $ID = $i;
+    
+            $preparar->bindParam(1,$nr);
+            $preparar->bindParam(2,$dt);
+            $preparar->bindParam(3,$st);
+            $preparar->bindParam(4,$ID);
+            
+            $preparar->execute();
+    
+            if($preparar->rowCount() > 0) {
+                echo "<script>alert('Reserva excluída!!'); 
+                location.href = 'admin.php?opc=res';
+                </script>";
+            } else {
+                echo "<script>alert('Não excluída');
+                location.href = 'admin.php?opc=res';
+                </script>";
+            }
+        }
     }
 
 ?>

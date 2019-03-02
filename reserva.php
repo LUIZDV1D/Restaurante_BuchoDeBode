@@ -42,68 +42,29 @@ div.p {
 
 <div style="position: relative; margin-top: 42%;">
 	<div class="p">
-	<form method="get" action="espaco.php">
+	<form method="get" action="mesaR.php">
 		<label for="fname">Nome completo:</label>
 		<input type="text" id="fname" name="name" placeholder="Seu nome...">
-
-		<label for="lname">Ano de nascimento:</label>
-		<select>
-			<option value="mesa1">2001</option>
-			<option value="mesa2">2000</option>
-			<option value="mesa3">1999</option>
-			<option value="mesa4">1998</option>
-			<option value="mesa4">1997</option>
-			<option value="mesa4">1996</option>
-			<option value="mesa4">1995</option>
-			<option value="mesa4">1994</option>
-			<option value="mesa4">1993</option>
-			<option value="mesa4">1992</option>
-			<option value="mesa4">1991</option>
-			<option value="mesa4">1990</option>
-			<option value="mesa4">1989</option>
-			<option value="mesa4">1989</option>
-			<option value="mesa4">1988</option>
-			<option value="mesa4">1987</option>
-			<option value="mesa4">1986</option>
-			<option value="mesa4">1985</option>
-			<option value="mesa4">1984</option>
-			<option value="mesa4">1983</option>
-			<option value="mesa4">1982</option>
-			<option value="mesa4">1981</option>
-			<option value="mesa4">1980</option>
-			<option value="mesa4">1979</option>
-			<option value="mesa4">1978</option>
-			<option value="mesa4">1977</option>
-			<option value="mesa4">1976</option>
-			<option value="mesa4">1975</option>
-			<option value="mesa4">1974</option>
-			<option value="mesa4">1973</option>
-			<option value="mesa4">1972</option>
-			<option value="mesa4">1971</option>
-			<option value="mesa4">1970</option>
-			<option value="mesa4">1969</option>
-			<option value="mesa4">1968</option>
-			<option value="mesa4">1967</option>
-			<option value="mesa4">1966</option>
-			<option value="mesa4">1965</option>
-			<option value="mesa4">1964</option>
-			<option value="mesa4">1963</option>
-			<option value="mesa4">1962</option>
-			<option value="mesa4">1961</option>
-			<option value="mesa4">1960</option>
-		</select> 
 		
 		<label for="lname">Mesas:</label>
-		<select>
+		<select name="m">
 			<?php
-			
-				for ($i=1; $i <= 13; $i++) { 
-					echo '<option value="'.$i.'">Mesa '.$i.'</option>';		
+
+			 $con = new Conexao();
+    
+            $stmt = $con->Con();
+    
+            $sql = $stmt->prepare("SELECT * FROM mesas WHERE status = 'naoreservada'");
+            $sql->execute();
+    
+            $mesas = $sql->fetchAll();
+
+				for ($i=0; $i < count($mesas); $i++) {
+					echo '<option value="'.$mesas[$i]["id"].'">'.$mesas[$i]["mesa"].'</option>';	
 				}
 
 			?>
 		</select>
-		<input type="hidden" value="agE" name="opi">
 		<label for="fdata">Data:</label>
 		<input type="text" id="fdata" name="dataR" placeholder="DD/MM/YYYY">    
 		<?php
@@ -123,13 +84,18 @@ div.p {
 				}
 			}
 			if ($btR >= 13) {
-				echo '<br><br><center><h4 style="color:white;">Espaço reservado para Evento!!</h4></center>';
+				
 			} else {
 				echo '
-				<input type="submit" value="Enviar" name="Enviar">
+				<input type="submit" name="Enviar">';
+			}
+			if ($btR > 0) {
+				echo '<br><br><center><h4 style="color:white;">Espaço com mesa(s) reservada(s)!</h4></center>';
+			} else {
+				echo '
 				<br><br>
 				<center>
-				<button style="background: orange; cursor: pointer;">AGENDAR ESPAÇO PARA SUA FESTA</button>
+				<a href="?opic=reE"><button type="button" style="background: orange; cursor: pointer;">AGENDAR ESPAÇO PARA SUA FESTA</button></a>
 			</center>';
 			}
 		?>
@@ -153,7 +119,7 @@ div.p {
 
     $(document).ready(function () { 
         var $seuCampoData = $("#fdata");
-		$seuCampoData.mask('00-00-0000', {reverse: false});
+		$seuCampoData.mask('00/00/0000', {reverse: false});
     });
 
 </script> 

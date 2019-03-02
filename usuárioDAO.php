@@ -56,5 +56,34 @@
 				";
 			}
 		}
+
+		public function ReservaMesa($n, $d, $i) {
+			$con = new Conexao();
+
+			$stmt = $con->Con();
+
+			$sql = $stmt->prepare("UPDATE mesas SET nome_reservista = ?, data = ?, status = ? WHERE id = ?");
+
+			$da = $d;
+			$no = $n;
+			$s = "reservada";
+			$ID = $i;
+
+			$sql->bindParam(1, $no);
+			$sql->bindParam(2, $da);
+			$sql->bindParam(3, $s);
+			$sql->bindParam(4, $ID);
+
+			$sql->execute();
+
+			if ($sql->rowCount() > 0) {
+				echo "
+				<script>
+					alert('Cadastrado com sucesso!! Você será mandado para a tela principal.');
+					location.href = 'index.php';
+				</script>
+				";
+			}
+		}
 	}
 ?>

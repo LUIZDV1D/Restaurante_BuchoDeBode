@@ -7,6 +7,13 @@
 		$u = new UsuarioDAO();
 
 		$u->ReservaEspaco($_GET['name'], $_GET['dataR']);
+	} else {
+		echo "
+				<script>
+					alert('Preencha os campos!!');
+					location.href = 'index.php?opic=rese';
+				</script>
+				";
 	}
 
 ?>

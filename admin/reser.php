@@ -81,7 +81,7 @@ th {
 	      			<td>
 						  ";
 						 if ($mesas[$i]['status'] != "naoreservada") {
-							 echo "<a style='color: blue; text-decoration: none;' href='#'>Alterar</a>";
+							 echo "<a style='color: blue; text-decoration: none;' href='dellR.php?id=".$mesas[$i]['id']."'>Alterar</a>";
 						 } 
 						  "
 	      			</td>
