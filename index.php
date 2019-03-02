@@ -22,7 +22,7 @@
 <div class="col-xs-12 col-lg-10">
 <nav id="navbar">
 <ul>
-<li><a href="index.php">Menu</a></li>
+<li><a href="index.php">Início</a></li>
 <li><a href="?opic=cardap">Cardápu</a></li>
 <li><a href="#">Quem Somos</a></li>
 <li><a href="?opic=rese">Reservas</a></li>

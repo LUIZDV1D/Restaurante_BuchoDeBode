@@ -96,7 +96,6 @@
 			<li><a href="?opc=res">Reservas</a></li>
 			<li><a href="?opc=carda">Cadastrar Pratos</a></li>
 			<li><a href="?opc=lpratos">Lista de Pratos</a></li>
-			<li><a href="?opc=at">Atrações</a></li>
 		</ul>
 	</div>
 	<div class="menuzinho">
@@ -114,6 +113,12 @@
 				}
 				if ($_GET['opc'] == 'lpratos') {
 					include('listaPratos.php');
+				}
+				if ($_GET['opc'] == 'res') {
+					include('reser.php');
+				}
+				if ($_GET['opc'] == 'altTodas') {
+					require('altTo.php');
 				}
 			}
 
