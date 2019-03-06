@@ -1,12 +1,30 @@
-<?php include_once("Conexao.php"); ?>
+<?php 
+
+	include_once("Conexao.php"); 
+
+	$con = new Conexao();
+
+	$stmt = $con->Con();
+
+	$sql = $stmt->prepare("SELECT * FROM cardapio WHERE id = ?");
+
+	$ID = $_GET['id'];
+
+	$sql->bindParam(1, $ID);
+
+	$sql->execute();
+
+	$prato = $sql->fetch();
+?>
 
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Quem Somos?</title>
+	<title>Prato: <?php echo $prato['nome_comida']?></title>
 	<meta charset="utf-8">
 	<link rel="stylesheet" type="text/css" href="css/styleQ.css">
 	<link rel="stylesheet" type="text/css" href="css/animate.css">
+	<link rel="shortcut icon" type="x-icon" href="admin/img/<?php echo $prato['image']?>">
 	<script type="text/javascript" src="js/wow.js"></script>
 
 	<style type="text/css">
@@ -42,27 +60,12 @@
 
 			<?php
 
-	            $con = new Conexao();
-
-				$stmt = $con->Con();
-
-				$sql = $stmt->prepare("SELECT * FROM cardapio WHERE id = ?");
-
-				$ID = $_GET['id'];
-
-				$sql->bindParam(1, $ID);
-
-				$sql->execute();
-
-				$prato = $sql->fetch();
-
 	                echo '
 	                <center>
-						<h2 style="font-family: arial; color: white;">'.strtoupper($prato["nome_comida"]).'</h2>
+						<h2 style="font-family: arial; color: white;">'.$prato["nome_comida"].'</h2>
 					</center>
 	                <img height="300" class="img-1" src="admin/img/'.$prato["image"].'">
-					<p style="color: white; width: 50%; float: right; margin-top: 12%; margin-right: 5%; max-height: 10%;">'.$prato["descricao"].'</p>
-					<p style="color: white; width: 50%; float: right; margin-top: -10%; margin-right: 5%; max-height: 10%;">R$ '.$prato["preco_comida"].'</p>';
+					<p style="color: white; width: 50%; float: right; margin-top: 12%; margin-right: 5%; max-height: 10%; border: 1px solid black; border-radius: 5px;">'.$prato["descricao"].'<br><br>R$ '.$prato["preco_comida"].'</p>';
 
        		?>
        		<a href="Cardapio2.php" style="position: absolute; margin-top: 20%; margin-left: 34%;"><button class="botao-danger" type="button">Voltar</button></a>
