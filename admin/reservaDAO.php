@@ -33,11 +33,11 @@
     
             if($preparar->rowCount() > 0) {
                 echo "<script>alert('Reservas excluídas!!'); 
-                location.href = 'admin.php';
+                location.href = 'index.php';
                 </script>";
             } else {
                 echo "<script>alert('Não excluídas');
-                location.href = 'admin.php';
+                location.href = 'index.php';
                 </script>";
             }
         }
@@ -64,11 +64,11 @@
     
             if($preparar->rowCount() > 0) {
                 echo "<script>alert('Reserva excluída!!'); 
-                location.href = 'admin.php?opc=res';
+                location.href = 'index.php?opc=res';
                 </script>";
             } else {
                 echo "<script>alert('Não excluída');
-                location.href = 'admin.php?opc=res';
+                location.href = 'index.php?opc=res';
                 </script>";
             }
         }

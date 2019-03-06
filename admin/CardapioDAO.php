@@ -25,11 +25,11 @@ class CardapioDAO {
 
 		if ($preparar->rowCount() > 0) {
 			echo "<script>alert('Cadastrado!!');
-			location.href = 'admin.php?opc=lpratos';
+			location.href = 'index.php?opc=lpratos';
 			</script>";
 		} else {
 			echo "<script>alert('Não cadastrado');
-			location.href = 'admin.php?opc=lpratos';
+			location.href = 'index.php?opc=lpratos';
 			</script>";
 		}
 	}
@@ -45,6 +45,17 @@ class CardapioDAO {
 		return $sql->fetchAll();
 	}
 
+	public function ListarBanners() {
+		$con = new Conexao();
+
+		$stmt = $con->Con();
+
+		$sql = $stmt->prepare("SELECT * FROM atracao ORDER BY id ASC");
+		$sql->execute();
+
+		return $sql->fetchAll();
+	}
+
 	public function ExcluirC($idE) {
 		$co = new Conexao();
 
@@ -55,14 +66,38 @@ class CardapioDAO {
 		$preparar->bindParam(1,$id);
 
 		$preparar->execute();
-
+		
 		if($preparar->rowCount() > 0) {
+
 			echo "<script>alert('Deletado!!'); 
-			location.href = 'admin.php?opc=lpratos';
+			location.href = 'index.php?opc=lpratos';
 			</script>";
 		} else {
 			echo "<script>alert('Não deletado');
-			location.href = 'admin.php?opc=lpratos';
+			location.href = 'index.php?opc=lpratos';
+			</script>";
+		}
+	}
+
+	public function ExcluirB($idE) {
+		$co = new Conexao();
+
+		$query = $co->Con();
+
+		$preparar = $query->prepare("DELETE FROM atracao WHERE id = ?");
+		$id = $idE;
+		$preparar->bindParam(1,$id);
+
+		$preparar->execute();
+		
+		if($preparar->rowCount() > 0) {
+
+			echo "<script>alert('Deletado!!'); 
+			location.href = 'index.php?opc=latra';
+			</script>";
+		} else {
+			echo "<script>alert('Não deletado');
+			location.href = 'index.php?opc=latra';
 			</script>";
 		}
 	}
@@ -89,11 +124,35 @@ class CardapioDAO {
 
 		if($preparar->rowCount() > 0) {
 			echo "<script>alert('Atualizado!!'); 
-			location.href = 'admin.php?opc=lpratos';
+			location.href = 'index.php?opc=lpratos';
 			</script>";
 		} else {
 			echo "<script>alert('Não atualizado');
-			location.href = 'admin.php?opc=lpratos';
+			location.href = 'index.php?opc=lpratos';
+			</script>";
+		}
+	}
+
+	public function CadastroBanner($nome_img) {
+		$co = new Conexao();
+
+		$query = $co->Con();
+
+		$preparar = $query->prepare("INSERT INTO atracao (banner) VALUES (?)");
+
+		$name = $nome_img;
+
+		$preparar->bindParam(1, $name);
+
+		$preparar->execute();
+
+		if ($preparar->rowCount() > 0) {
+			echo "<script>alert('Cadastrado!!');
+			location.href = 'index.php?opc=latra';
+			</script>";
+		} else {
+			echo "<script>alert('Não cadastrado');
+			location.href = 'index.php';
 			</script>";
 		}
 	}

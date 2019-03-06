@@ -12,7 +12,7 @@ $I = $_GET['imagens'];
 
 if (isset($_GET['o'])) {
 	if ($_GET['o'] == 'voltar') {
-		header('location:admin.php');
+		header('location:index.php');
 	}
 }
 ?>

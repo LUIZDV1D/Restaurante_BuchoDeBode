@@ -1,3 +1,18 @@
+
+<?php
+
+ include_once('Conexao.php'); 
+
+  $con = new Conexao();
+
+  $stmt = $con->Con();
+
+  $sql = $stmt->prepare("SELECT * FROM atracao");
+
+  $sql->execute();
+
+?>
+
 <!DOCTYPE html>
 <html>
   <head>
@@ -6,6 +21,26 @@
     <link rel="stylesheet" href="css/flexBox.css">
     <link rel="stylesheet" href="css/styleI.css">
     <link rel="shortcut icon" type="x-icon" href="images/logo.png">
+    <script type="text/javascript" src="js/jquery.js"></script>
+  <script type="text/javascript" src="js/cycle.js"></script>
+
+  <style type="text/css">
+    #imagens{
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      border-radius:5px;
+    }
+    
+    #imagens ul{
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      list-style:none;
+      width: 100%;
+    }
+
+</style>
 </head>
 <body>
     
@@ -17,7 +52,7 @@
 <div class="col-xs-12 col-sm-2 col-md-2 col-lg-2">
           
            
-<img class="logo" src="images/logo.png">
+<a href="index.php"><img class="logo" src="images/logo.png"></a>
             
  </div>
 <div class="col-xs-12 col-lg-10">
@@ -35,16 +70,22 @@
         
 </div>
 <section>
-<img class="foto" src="images/1.jpg">
 
-<img class="foto" src="images/1.jpg" >
-<img class="foto" src="images/2.jpg" >
+<div id="imagens">
+    <ul>
+      <?php  
+          $banner = $sql->fetchAll();
+          
+          for ($i=0; $i < count($banner); $i++) { 
+            echo '<li>
+            <img style="width: 100%;" src="admin/img/atracoes/'.$banner[$i]["banner"].'"/>
+          </li>';
+          }
+      
+      ?>
+      </ul>
 
-
-<img class="foto" src="images/3.jpg"></li>
-
-
-</div>
+</div><!--FIM DIV IMAGENS-->
 </section>
 </header>
 
@@ -72,8 +113,27 @@
         if ($_GET['opic'] == 'qsomos') {
           include 'quem somos.php';
         }
+        if ($_GET['opic'] == 'cadT') {
+           $con = new Conexao();
+    
+            $stmt = $con->Con();
+    
+            $sql = $stmt->prepare("SELECT * FROM cardapio");
+            $sql->execute();
+    
+            if ($sql->rowCount() > 0) {
+              header("location:Cardapio2.php");
+            } else {
+              echo "
+              <script>
+
+                alert('Não possuem pratos cadastrados!')
+                location.href = 'index.php?opic=cardap';
+              </script>";
+            }
+        }
       }else{
-          echo "<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>";
+          echo "<br><br><br><br><br><br><br><br><br>";
         }
     ?>
 </section>
@@ -161,7 +221,18 @@
       </div>
     </section>
 
-     
+     <script type="text/javascript">
+  $(function(){
+    $('#imagens ul').cycle({
+      fx: 'fade',
+      speed: 2000,
+      timeout: 3000,
+      next: '#prox',
+      prev: '#ant',
+      pager: '#pager'
+    })
+  })
+</script>
 
   </body>
 </html>

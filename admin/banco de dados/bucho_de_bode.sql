@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: 06-Mar-2019 às 17:42
+-- Generation Time: 06-Mar-2019 às 22:04
 -- Versão do servidor: 10.1.30-MariaDB
 -- PHP Version: 7.2.1
 
@@ -41,6 +41,26 @@ CREATE TABLE `administrador` (
 
 INSERT INTO `administrador` (`id`, `nome`, `usuario`, `senha`) VALUES
 (1, 'Administração', 'admin', 'admin');
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `atracao`
+--
+
+CREATE TABLE `atracao` (
+  `id` int(11) NOT NULL,
+  `banner` varchar(40) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Extraindo dados da tabela `atracao`
+--
+
+INSERT INTO `atracao` (`id`, `banner`) VALUES
+(7, '733cbe733e35a811d447f1b5cb27d97a.jpg'),
+(8, 'a3b28ce7ec95ed9e0a4d0abaff3d036a.jpg'),
+(9, '084dee346b48cd114e876443107157e5.jpg');
 
 -- --------------------------------------------------------
 
@@ -101,6 +121,12 @@ ALTER TABLE `administrador`
   ADD UNIQUE KEY `usuario` (`usuario`);
 
 --
+-- Indexes for table `atracao`
+--
+ALTER TABLE `atracao`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `cardapio`
 --
 ALTER TABLE `cardapio`
@@ -124,10 +150,16 @@ ALTER TABLE `administrador`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
+-- AUTO_INCREMENT for table `atracao`
+--
+ALTER TABLE `atracao`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+
+--
 -- AUTO_INCREMENT for table `cardapio`
 --
 ALTER TABLE `cardapio`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
 
 --
 -- AUTO_INCREMENT for table `mesas`

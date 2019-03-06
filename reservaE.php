@@ -1,4 +1,4 @@
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.0/jquery.mask.js"></script>
 <?php 
 
@@ -40,7 +40,7 @@ div.p {
 
 </style>
 
-<div style="position: relative; margin-top: 42%;">
+<div style="position: relative;">
 	<div class="p">
 	<form method="get" action="espaco.php">
 		<label for="fname">Nome completo:</label>

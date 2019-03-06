@@ -13,9 +13,9 @@
 				$stmt->execute();
 
 				if ($stmt->rowCount() > 0) {
-					header("location:admin.php");				
+					header("location:index.php");				
 				}else{
-					header("location:index.php");
+					header("location:login.php");
 				}
 			}
 

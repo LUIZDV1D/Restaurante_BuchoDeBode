@@ -9,7 +9,7 @@
   transition: 0.4s;
 }
 	</style>
-<div style="margin-top: 45%;">
+<div">
 
 	<div align="center">
 		
@@ -30,7 +30,7 @@
 	</div>
 
 	<div>
-	<a href="Cardapio2.php"><img id="img-res" class="contraste" style="width: 70%; height: 25%;margin-top: 30px;" src="images/ver_mais.jpg"></a>
+	<a href="?opic=cadT"><img id="img-res" class="contraste" style="width: 70%; height: 25%;margin-top: 30px;" src="images/ver_mais.jpg"></a>
 	</div>
 	<br>
 

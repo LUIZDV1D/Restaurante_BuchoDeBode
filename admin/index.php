@@ -1,227 +1,158 @@
+<?php 
+
+	session_start();
+
+	if ($_SESSION['Administrador'] == "") {
+		header("location:login.php");
+	} else {
+		if (isset($_GET['sair'])) {
+			if ($_GET['sair'] == "s") {
+				session_destroy();
+				header('location:index.php');
+			}
+	}
+	}
+
+?>
+
 <!DOCTYPE html>
 <html>
-	<head>
-		<meta charset='utf-8'>
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<link rel="stylesheet" type="text/css" href="css/animate.css">
+<head>
+	<title><?php echo $_SESSION['Administrador'];?></title>
+	<meta charset='utf-8'>
+		<link rel="stylesheet" type="text/css" href="css/style.css">
+		<link rel="stylesheet" href="css/animate.css">
+		<!-- <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>-->
+		<script src="js/jquery-3.3.1.min.js"></script>
 		<script src="js/wow.min.js"></script>
-              	<script>
-              		new WOW().init();
-              	</script>
-		<title>LOGIN</title>
-		<style type="text/css">
-			* {margin: 0 auto; padding: 0;}
+		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+        <link rel="stylesheet" type="text/css" href="css/fontawesome.css">
+		<script>
+            new WOW().init();
+        </script>
 
-body {
-	font-family: arial;
-	background-color: #FF4500;
-}
+        <style type="text/css">
 
-.container {
-	display: flex;
-	flex:1;
-	flex-direction: column;
-	align-items: center;
-	justify-content: center;
-	flex-wrap: nowrap;
-	height: 100%;
-}
+			ul {
+			  list-style-type: none;
+			  margin: 0;
+			  padding: 0;
+			  overflow: hidden;
+			}
 
-.form-control {
-	border: 0px solid black;
-	padding: 50px 90px;
-	border-radius: 5px;
-}
+			li a {
+			  display: block;
+			  color: white;
+			  text-align: center;
+			  padding: 14px 16px;
+			  text-decoration: none;
+			}
 
-.form-group {
-	position: relative;
-}
+			li a:hover {
+			  background-color: #111;
+			}
 
-.estilo-input {
-	transition: 0.5s;
-	filter: brightness(0.8);
-	border: 0px solid gray;
-	border-radius: 5px;
-	width: 60%;
-	height: 35px;
-}
+			#home {
+				background-color: #B22222;
+			}
 
-.estilo-input:focus {
-	transition: 0.5s;
-	filter: brightness(1);
-	border: 0.1px solid gray;
-	border-radius: 5px;
-	width: 100%;
-	height: 35px;
-}
+			#me {
+				display: block;
+				background-color: #333;
+				position: fixed;
+				width: 20%;
+				height: 100%;
+			}
 
+			.menuzinho {
+				display: none;
+			}
+			
+			#me {
+				display: none;
+			}
 
-.botao-success {
-	position: absolute;
-	transition: 0.08s;
-	background-color: white;
-	color: #32CD32;
-	border-radius: 5px;
-	padding: 10px 20px;
-	border: 2px solid #32CD32;
-	margin-left: 15%;	
-}
+			.menuzinho {
+				display: block;
+				background: #333;
+				width: 5%;
+				height: 9vh;
+				float: left;
+				border-radius: 5px;
+			}
 
-.botao-success:hover {
-	position: absolute;
-	transition: 0.08s;
-	background-color: #32CD32;
-	color: white;
-	border-radius: 5px;
-	padding: 10px 20px;
-	border: 2px solid #32CD32;
-	margin-left: 15%;
-	cursor: pointer;	
-}
+			#icon-close-menu {
+				display: block;
+			}
 
+        </style>
+</head>
+<body>
+	<div id="me">
+		<ul>
+			<li id="icon-close-menu"><i style="font-size: 25px; padding: 10px 10px; cursor: pointer; color: #B22222;" class="fa fa-bars"></i></li>
+			<li><h3 style="text-align: center; color: white; padding: 5px 10px;"><?php echo $_SESSION['Administrador'];?></h3><h4 style="text-align: center; color: white; padding: 5px 10px 30px;"><a href="?sair=s">Sair</a></h4></li>
+			<li id="home"><a href="index.php">Home</a></li>
+			<li><a href="?opc=res">Reservas</a></li>
+			<li><a href="?opc=cadBA">Cadastrar Banner de Atração</a></li>
+			<li><a href="?opc=carda">Cadastrar Pratos</a></li>
+			<li><a href="?opc=lpratos">Lista de Pratos</a></li>
+			<li><a href="?opc=latra">Lista de Atrações</a></li>
+		</ul>
+	</div>
+	<div class="menuzinho">
+		<center>
+			<i class="fa fa-bars" id="icon-open-menu" style="cursor: pointer; font-size: 35px; color: #B22222; margin-top: 10px;"></i>
+		</center>
+	</div>
 
-.botao-warning {
-	position: absolute;
-	background-color: white;
-	color: #FF8C00;
-	border-radius: 5px;
-	padding: 10px 20px;
-	border: 2px solid #FF8C00;
-	margin-left: 15%;	
-}
+	<div>
+		<?php
 
-.botao-warning:hover {
-	position: absolute;
-	transition: 0.09s;
-	background-color: #FF8C00;
-	color: white;
-	border-radius: 5px;
-	padding: 10px 20px;
-	border: 0px solid black;
-	cursor: pointer;
-	box-shadow: 2px 2px #888888;	
-}
-
-.botao-danger {
-	position: absolute;
-	background-color: white;
-	color: #FF0000;
-	border-radius: 5px;
-	padding: 10px 20px;
-	border: 2px solid #FF0000;
-	margin-left: 15%;	
-}
-
-.botao-danger:hover {
-	position: absolute;
-	transition: 0.09s;
-	background-color: #FF0000;
-	color: white;
-	border-radius: 5px;
-	padding: 10px 20px;
-	border: 2px solid #FF0000;
-	cursor: pointer;		
-}
-
-.botao-info {
-	position: absolute;
-	background-color: #6495ED;
-	color: white;
-	border-radius: 5px;
-	padding: 10px 20px;
-	border: 0px solid black;
-	margin-left: 15%;	
-}
-
-.botao-info:hover {
-	position: absolute;
-	transition: 0.09s;
-	background-color: #6495ED;
-	color: white;
-	border-radius: 5px;
-	padding: 10px 20px;
-	border: 0px solid black;
-	cursor: pointer;
-	box-shadow: 2px 2px #888888;	
-}
-
-.botao-default {
-	position: absolute;
-	background-color: #0000FF;
-	color: white;
-	border-radius: 5px;
-	padding: 10px 20px;
-	border: 0px solid black;	
-	margin-left: 15%;
-}
-
-.botao-default:hover {
-	position: absolute;
-	transition: 0.09s;
-	background-color: #0000FF;
-	color: white;
-	border-radius: 5px;
-	padding: 10px 20px;
-	border: 0px solid black;
-	cursor: pointer;
-	box-shadow: 2px 2px #888888;	
-}
-
-
-		</style>
-	</head>
-	<body>
-		<div class="container">
-			<div class="wow fadeInUp" data-wow-delay=".2s" style="padding: 15px 0px;" class="form-group">
-				<h2>ÁREA DE ADMINISTRAÇÃO</h2>
-			</div>
-			<div>
-				<form  method="post">
-					<div style="background-color: white;" class="wow bounceIn form-control">
-						<div class="form-group">
-							<labeU>USUÁRIO:</label>
-							<br><br>
-							<input name="user" class="estilo-input" type="text" placeholder="Usuário">
-						</div>	
-						<br>
-						<div class="form-group">
-							<label class="text-center">SENHA:</label>
-							<br><br>
-							<input name="senha" class="estilo-input" type="password" placeholder="Senha">
-						</div>	
-						<br>
-						<div class="form-group">
-							<button style="width: 70%;" class="botao-success" type="submit">ENTRAR</button>	
-							<br><br><br>
-							<button style="width: 70%;" class="botao-danger" type="button">SAIR</button>
-						</div>			
-					</div>
-				</form>
-
-				<?php
-
-				if(isset($_POST['user']) && isset($_POST['senha'])){
-
-					session_start();
-
-
-					require('UsuarioDAO.php');
-
-					$ud = new UsuarioDAO();
-					$us = new Usuario();
-
-					$us->setUsuario($_POST['user']);
-					$us->setSenha($_POST['senha']);
-
-					$_SESSION['Administrador'] = "ADMINISTRAÇÃO";
-
-					$ud->Logar($us);
+			if (isset($_GET['opc'])) {
+				if ($_GET['opc'] == 'carda') {
+					include('cadastroCardapio.php');
 				}
-					
+				if ($_GET['opc'] == 'lpratos') {
+					include('listaPratos.php');
+				}
+				if ($_GET['opc'] == 'res') {
+					include('reser.php');
+				}
+				if ($_GET['opc'] == 'altTodas') {
+					require('altTo.php');
+				}
+				if ($_GET['opc'] == 'cadBA') {
+					require('cadAtracao.php');
+				}
+				if ($_GET['opc'] == 'latra') {
+					require('listaBanner.php');
+				}
+			}
 
-				?>
-
-			</div>		
-		</div>	
-	</body>
+		?>
+	</div>
+</body>
 </html>
+
+<script type="text/javascript">
+	$("#icon-open-menu").click(function(){
+        $('#me').toggle(200, function() {
+                $('#me').css("display", "block")
+        });
+        $('#menuzinho').toggle(200, function() {
+                $('#menuzinho').css("display", "none")
+        });
+    });
+
+
+
+    $("#icon-close-menu").click(function(){
+		$('#me').toggle(200, function() {
+            $('#me').css("display", "none")
+        });
+        $('#menuzinho').toggle(200, function() {
+            $('#menuzinho').css("display", "block")
+        });
+    });
+</script>

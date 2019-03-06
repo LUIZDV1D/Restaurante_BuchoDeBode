@@ -1,3 +1,27 @@
+
+<?php
+include_once ('admin/CardapioDAO.php');
+
+$con = new Conexao();
+    
+            $stmt = $con->Con();
+    
+            $sql = $stmt->prepare("SELECT * FROM cardapio");
+            $sql->execute();
+    
+            if ($sql->rowCount() > 0) {
+              
+            } else {
+              echo "
+              <script>
+
+                alert('Não possuem pratos cadastrados!')
+                location.href = 'index.php?opic=cardap';
+              </script>";
+            }
+
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -21,8 +45,6 @@
 
     <section class="container row">
         <?php
-
-            include_once 'admin/CardapioDAO.php';
 
             $CardapioDao = new CardapioDAO();
 
