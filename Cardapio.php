@@ -14,23 +14,23 @@
 	<div align="center">
 		
 		<div>
-	<img id="img-res" style="width: 70%; height: 25%;margin-top: 30px;" src="img/mungunza.jpg">
+	<img id="img-res" style="width: 70%; height: 25%;margin-top: 30px;" src="images/mungunza.jpg">
 	    </div>
 
 	<div>
-	<img id="img-res" style="width: 70%; height: 25%;margin-top: 30px;" src="img/pacoca.jpg">
+	<img id="img-res" style="width: 70%; height: 25%;margin-top: 30px;" src="images/pacoca.jpg">
 	</div>
 
 	<div>
-	<img id="img-res" style="width: 70%; height: 25%;margin-top: 30px;" src="img/tapioca banner.jpg">
+	<img id="img-res" style="width: 70%; height: 25%;margin-top: 30px;" src="images/tapioca banner.jpg">
 	</div>
 
 	<div>
-	<img id="img-res" style="width: 70%; height: 25%;margin-top: 30px;" src="img/pamonha.jpg">
+	<img id="img-res" style="width: 70%; height: 25%;margin-top: 30px;" src="images/pamonha.jpg">
 	</div>
 
 	<div>
-	<a href="Cardapio2.php"><img id="img-res" class="contraste" style="width: 70%; height: 25%;margin-top: 30px;" src="img/ver mais.jpg"></a>
+	<a href="Cardapio2.php"><img id="img-res" class="contraste" style="width: 70%; height: 25%;margin-top: 30px;" src="images/ver_mais.jpg"></a>
 	</div>
 	<br>
 

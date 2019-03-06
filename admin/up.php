@@ -1,11 +1,13 @@
 <?php
 
 include_once 'CardapioDAO.php';
+include_once 'Cardapio.php';
 
 $id = $_GET['id'];
 $no = $_GET['nome'];
 $pre = $_GET['preco'];
 $des = $_GET['descricao'];
+$I = $_GET['imagens'];
 
 
 if (isset($_GET['o'])) {
@@ -18,7 +20,7 @@ if (isset($_GET['o'])) {
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Cadastrar Cardápio</title>
+	<title>Atualizar Prato</title>
 	<link rel="stylesheet" type="text/css" href="css/style.css">
 </head>
 <body>
@@ -49,15 +51,7 @@ if (isset($_GET['o'])) {
 				<div style="margin-top: 3%;">
 					<span>Descrição:</span>
 					<br>
-					<textarea name="desc" style="width: 23%; max-width: 23%; max-height: 25vh; min-height: 25vh; min-width: 23%;">
-                     <?php echo $des;?>
-                    </textarea>
-				</div>
-
-				<div style="margin-top: 3%;">
-					<span>Imagem:</span>
-					<br>
-					<input type="file" name="img">
+					<textarea name="desc" style="width: 23%; max-width: 23%; max-height: 25vh; min-height: 25vh; min-width: 23%;"><?php echo $des;?></textarea>
 				</div>
 				<br>
 				<button style="cursor: pointer;" type="submit">Atualizar</button>
@@ -70,17 +64,18 @@ if (isset($_GET['o'])) {
 
 <?php
 
-include_once('CardapioDAO.php');
-
+$car = new Cardapio();
 $caDAO = new CardapioDAO();
 
 if (isset($_POST['ncomida']) && isset($_POST['preco']) && isset($_POST['desc']) && isset($_POST['id'])) {
+
     $idE = $_POST['id'];
     $nomeP = $_POST['ncomida'];
     $precoP = $_POST['preco'];
     $descP = $_POST['desc'];
 
     $caDAO->AtualizarC($idE,$nomeP,$precoP,$descP);
+
 }
 
 ?>

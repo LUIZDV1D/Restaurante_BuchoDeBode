@@ -5,6 +5,7 @@
     <title>Bucho de Bode</title>
     <link rel="stylesheet" href="css/flexBox.css">
     <link rel="stylesheet" href="css/styleI.css">
+    <link rel="shortcut icon" type="x-icon" href="images/logo.png">
 </head>
 <body>
     
@@ -24,7 +25,7 @@
 <ul>
 <li><a href="index.php">Início</a></li>
 <li><a href="?opic=cardap">Cardápu</a></li>
-<li><a href="#">Quem Somos</a></li>
+<li><a href="?opic=qsomos">Quem Somos</a></li>
 <li><a href="?opic=rese">Reservas</a></li>
 </ul>
 </nav>
@@ -67,6 +68,9 @@
         }
         if ($_GET['opic'] == 'reE') {
           include 'reservaE.php';
+        }
+        if ($_GET['opic'] == 'qsomos') {
+          include 'quem somos.php';
         }
       }else{
           echo "<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>";
@@ -143,7 +147,7 @@
           </div>
           <div class="col-xs-12 col-lg-4">
             <h4>Sobre nós</h4>
-            <p>Para mais informações sobre a empresa, acesse "Sobre Nós"</p>
+            <p>Para mais informações sobre a empresa, acesse "Quem Somos"</p>
           </div>
           <div class="col-xs-12 col-lg-4">
             <h4>Quer receber notícias?</h4>

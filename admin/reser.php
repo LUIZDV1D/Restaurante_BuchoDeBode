@@ -95,7 +95,7 @@ th {
     <br><br>
     <?php
     if($btnExcluir >=1){
-        echo '<a href="?opc=altTodas">Excluir todas as reservas</a>';
+        echo '<a href="?opc=altTodas"><button type="button" style="cursor:pointer;">Excluir todas as reservas</button></a>';
     }
     ?>
     <br><br>

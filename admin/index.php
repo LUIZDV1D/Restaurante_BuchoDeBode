@@ -40,7 +40,6 @@ body {
 .estilo-input {
 	transition: 0.5s;
 	filter: brightness(0.8);
-	background-color: white;
 	border: 0px solid gray;
 	border-radius: 5px;
 	width: 60%;
@@ -50,8 +49,7 @@ body {
 .estilo-input:focus {
 	transition: 0.5s;
 	filter: brightness(1);
-	background-color: white;
-	border: 0px solid blue;
+	border: 0.1px solid gray;
 	border-radius: 5px;
 	width: 100%;
 	height: 35px;

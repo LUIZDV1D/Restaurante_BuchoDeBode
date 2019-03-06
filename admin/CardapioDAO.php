@@ -25,11 +25,11 @@ class CardapioDAO {
 
 		if ($preparar->rowCount() > 0) {
 			echo "<script>alert('Cadastrado!!');
-			location.href = 'admin.php';
+			location.href = 'admin.php?opc=lpratos';
 			</script>";
 		} else {
 			echo "<script>alert('Não cadastrado');
-			location.href = 'admin.php';
+			location.href = 'admin.php?opc=lpratos';
 			</script>";
 		}
 	}
@@ -58,11 +58,11 @@ class CardapioDAO {
 
 		if($preparar->rowCount() > 0) {
 			echo "<script>alert('Deletado!!'); 
-			location.href = 'admin.php';
+			location.href = 'admin.php?opc=lpratos';
 			</script>";
 		} else {
 			echo "<script>alert('Não deletado');
-			location.href = 'admin.php';
+			location.href = 'admin.php?opc=lpratos';
 			</script>";
 		}
 	}
@@ -89,11 +89,11 @@ class CardapioDAO {
 
 		if($preparar->rowCount() > 0) {
 			echo "<script>alert('Atualizado!!'); 
-			location.href = 'admin.php';
+			location.href = 'admin.php?opc=lpratos';
 			</script>";
 		} else {
 			echo "<script>alert('Não atualizado');
-			location.href = 'admin.php';
+			location.href = 'admin.php?opc=lpratos';
 			</script>";
 		}
 	}

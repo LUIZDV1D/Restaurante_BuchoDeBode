@@ -70,7 +70,7 @@ th {
 	      			<td>
 	      				<a style='color: red; text-decoration: none;' href='dell.php?id=".$pratos[$i]['id']."'>Excluir</a>
 	      				|
-	      				<a style='color: blue; text-decoration: none;' href='up.php?id=".$pratos[$i]['id']."&nome=".$pratos[$i]['nome_comida']."&preco=".$pratos[$i]['preco_comida']."&descricao=".$pratos[$i]['descricao']."'>Alterar</a>
+	      				<a style='color: blue; text-decoration: none;' href='up.php?id=".$pratos[$i]['id']."&nome=".$pratos[$i]['nome_comida']."&preco=".$pratos[$i]['preco_comida']."&descricao=".$pratos[$i]['descricao']."&imagens=".$pratos[$i]['image']."'>Alterar</a>
 	      			</td>
 	    		</tr>
 	    		";
@@ -80,3 +80,5 @@ th {
 	  </tbody>
 	</table>
     </center>
+
+ 
