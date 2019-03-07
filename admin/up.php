@@ -22,6 +22,7 @@ if (isset($_GET['o'])) {
 <head>
 	<title>Atualizar Prato</title>
 	<link rel="stylesheet" type="text/css" href="css/style.css">
+	<link rel="stylesheet" type="text/css" href="css/animacaoCardapio.css">
 </head>
 <body>
 
@@ -35,23 +36,23 @@ if (isset($_GET['o'])) {
                 <div style="margin-top: 5%;">
 					<span>ID:</span>
 					<br>
-					<input value="<?php echo $id;?>" type="text" name="id" readonly>
+					<input class="Namecomida" value="<?php echo $id;?>" type="text" name="id" readonly>
 				</div>
 
 				<div style="margin-top: 5%;">
 					<span>Nome da comida:</span>
 					<br>
-					<input value="<?php echo $no;?>" type="text" name="ncomida">
+					<input class="Namecomida" value="<?php echo $no;?>" type="text" name="ncomida">
 				</div>
 				<div style="margin-top: 3%;">
 					<span>Preço da comida:</span>
 					<br>
-					<input type="number" value="<?php echo $pre;?>" step="0.01" name="preco">
+					<input class="preco" type="number" value="<?php echo $pre;?>" step="0.01" name="preco">
 				</div>
 				<div style="margin-top: 3%;">
 					<span>Descrição:</span>
 					<br>
-					<textarea name="desc" style="width: 23%; max-width: 23%; max-height: 25vh; min-height: 25vh; min-width: 23%;"><?php echo $des;?></textarea>
+					<textarea class="descri" name="desc" style="width: 23%; max-width: 23%; max-height: 25vh; min-height: 25vh; min-width: 23%;"><?php echo $des;?></textarea>
 				</div>
 				<br>
 				<button style="cursor: pointer;" type="submit">Atualizar</button>

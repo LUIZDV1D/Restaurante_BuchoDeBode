@@ -5,7 +5,7 @@ include_once 'Cardapio.php';
 
 if (isset($_GET['o'])) {
 	if ($_GET['o'] == 'voltar') {
-		header('location:index.php');
+		header('location:admin.php');
 	}
 }
 ?>
@@ -14,41 +14,41 @@ if (isset($_GET['o'])) {
 <html>
 <head>
 	<title>Cadastrar Cardápio</title>
+	<link rel="stylesheet" type="text/css" href="css/animacaoCardapio.css">
 </head>
 <body>
 
 <div class="fle">
-	<div style="height: 100vh; background-color: tomato;">
+	<div class="Imagem" style="height: 100vh; background-color: tomato;">
 		<center>
 			<h2>Cadastrar comida</h2>
 
 			<form method="post" enctype="multipart/form-data">
-				<div style="margin-top: 5%;">
-					<span>Nome da comida:</span>
+				<div" style="s">					
 					<br>
-					<input type="text" name="ncomida">
+					 <input class="Namecomida" type="text" name="ncomida" placeholder="Nome da Comida">
 				</div>
-				<div style="margin-top: 3%;">
-					<span>Preço da comida:</span>
-					<br>
-					<input type="number" step="0.01" name="preco">
+				<div style="margin-top: -43%; margin-left: 35%;">
+					<br><br><br><br>	
+					<input class="Namecomida" type="number" step="0.01" name="preco" placeholder="Preço da Comida (R$)">
 				</div>
-				<div style="margin-top: 3%;">
-					<span>Descrição:</span>
-					<br>
-					<textarea name="desc" style="width: 23%; max-width: 23%; max-height: 25vh; min-height: 25vh; min-width: 23%;"></textarea>
+				<div style="margin-top: 1%; margin-left: 35%;">
+					
+				
+					<textarea class="descri" name="desc" placeholder="Descreva" style= "width: 45%; max-width: 45%; max-height: 25vh; min-height: 25vh; min-width: 23%;"></textarea>
 				</div>
 
-				<div style="margin-top: 3%;">
-					<span>Imagem:</span>
+				<div style="margin-top:;
+				margin-left: 35%;">
+					<span>IMAGEM:</span>
 					<br>
-					<input required type="file" name="img">
+					<input class="button" required type="file" name="img">
 				</div>
 				<br>
-				<button style="cursor: pointer;" type="submit">Cadastrar</button>
+				<button style="cursor: pointer;" class="Cadastro" type="submit">CADASTRAR</button>
 			</form> 
 				<br>
-				<a href="?o=voltar"><button style="cursor: pointer;" type="button">Voltar</button></a>
+				<a href="?o=voltar"><button style="cursor: pointer;" class="voltar"  type="button">VOLTAR</button></a>
 		</center>
 	</div>
 </div>

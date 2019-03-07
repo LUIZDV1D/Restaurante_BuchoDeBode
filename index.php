@@ -20,6 +20,8 @@
     <title>Bucho de Bode</title>
     <link rel="stylesheet" href="css/flexBox.css">
     <link rel="stylesheet" href="css/styleI.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+        <link rel="stylesheet" type="text/css" href="admin/css/fontawesome.css">
     <link rel="shortcut icon" type="x-icon" href="images/logo.png">
     <script type="text/javascript" src="js/jquery.js"></script>
   <script type="text/javascript" src="js/cycle.js"></script>
@@ -38,6 +40,20 @@
       justify-content: center;
       list-style:none;
       width: 100%;
+    }
+
+    a[href="#top"]{
+      padding:10px;
+      position:fixed;
+      top: 90%;
+      right:40px;
+      display:none;
+      font-size: 30px;
+      z-index: 999;
+    }
+
+    a[href="#top"]:hover{
+      text-decoration:none;
     }
 
 </style>
@@ -67,6 +83,8 @@
 
 </div>
 </div>
+
+<a href="#top" class="fas fa-arrow-up" style="text-decoration: none; color: white;"></a>
         
 </div>
 <section>
@@ -146,22 +164,22 @@
 <div class="container">
 <div class="row center-xs">
 <div class="col-xs-12 ">
-<h2>Localidades</h2>
+<h2>Localidades:</h2>
             
            
             <div class="row center-xs">
               <div class="col-xs-12">
-                <i class="fa fa-dashboard"></i><br>
+                <i class=""></i><br>
                 <h4>São Miguel/RN</h4>
                 <p>Rua Ademar Libertato Nº 49</p>
               </div>
               <div class="col-xs-12 col-lg-4">
-                <i class="fa fa-question-circle-o"></i><br>
+                <i class=""></i><br>
                 <h4>Natal/RN</h4>
                 <p>Rua Presidente Passos Nº 202</p>
               </div>
               <div class="col-xs-12 col-lg-4">
-                <i class="fa fa-rocket"></i><br>
+                <i class=""></i><br>
                 <h4>Pereiro/CE</h4>
                 <p>Rua São Vicente de Paula Nº 29</p>
               </div>
@@ -170,17 +188,17 @@
            
             <div class="row center-xs">
               <div class="col-xs-12 col-lg-4">
-                <i class="fa fa-line-chart"></i><br>
+                <i class=""></i><br>
                 <h4>Parnamirim/RN</h4>
                 <p>Rua Projetada Nº 85</p>
               </div>
               <div class="col-xs-12  col-lg-4">
-                <i class="fa fa-users"></i><br>
+                <i class=""></i><br>
                 <h4>Macau</h4>
                 <p>Rua Vereador Luis Chico Nº 508</p>
               </div>
               <div class="col-xs-12 col-lg-4">
-                <i class="fa fa-plug"></i><br>
+                <i class=""></i><br>
                 <h4>Tibau</h4>
                 <p>Praia de Canoa Quebrada</p>
               </div>
@@ -200,7 +218,7 @@
           <div class="col-xs-12  col-lg-4">
             <h4>Contatos (Central)</h4>
             <ul>
-              <li><i class="fa fa-phone"></i> (84) 555-5555</li>
+              <li><i class="fa fa-phone"></i> 0800 5555-5555</li>
               <li><i class="fa fa-envelope"></i> ajuda.360@gmail.com</li>
               <li><i class="fa fa-map"></i> Rua Álvaro Junior, 400</li>
             </ul>
@@ -231,7 +249,22 @@
       prev: '#ant',
       pager: '#pager'
     })
-  })
+  });
+
+  $(document).ready(function(){
+    $(window).scroll(function(){
+        if ($(this).scrollTop() > 100) {
+            $('a[href="#top"]').fadeIn();
+        } else {
+            $('a[href="#top"]').fadeOut();
+        }
+    });
+
+    $('a[href="#top"]').click(function(){
+        $('html, body').animate({scrollTop : 0},800);
+        return false;
+    });
+});
 </script>
 
   </body>

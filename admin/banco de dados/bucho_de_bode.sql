@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: 06-Mar-2019 às 22:04
+-- Generation Time: 07-Mar-2019 às 01:12
 -- Versão do servidor: 10.1.30-MariaDB
 -- PHP Version: 7.2.1
 
@@ -75,6 +75,14 @@ CREATE TABLE `cardapio` (
   `descricao` varchar(250) NOT NULL,
   `image` varchar(40) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Extraindo dados da tabela `cardapio`
+--
+
+INSERT INTO `cardapio` (`id`, `nome_comida`, `preco_comida`, `descricao`, `image`) VALUES
+(26, 'fsddgdgd', 4534, 'afsdfsdfs', '93a925fa23c46afae7426764e453a4ee.jpg'),
+(27, 'RÃ©gis', 10, 'batatÃ£o', '758b7fd61b07475bbac9b7f1c5c46b05.png');
 
 -- --------------------------------------------------------
 
@@ -153,13 +161,13 @@ ALTER TABLE `administrador`
 -- AUTO_INCREMENT for table `atracao`
 --
 ALTER TABLE `atracao`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT for table `cardapio`
 --
 ALTER TABLE `cardapio`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
 
 --
 -- AUTO_INCREMENT for table `mesas`

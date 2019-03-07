@@ -192,8 +192,6 @@ body {
 						<br>
 						<div class="form-group">
 							<button style="width: 70%;" class="botao-success" type="submit">ENTRAR</button>	
-							<br><br><br>
-							<button style="width: 70%;" class="botao-danger" type="button">SAIR</button>
 						</div>			
 					</div>
 				</form>

@@ -62,7 +62,7 @@ th {
 				echo "
 				<tr>
 	      			<td scope='row'>".$ba[$i]['id']."</td>
-	      			<td>".$ba[$i]['banner']."</td>
+	      			<td><center><img width='500' height='300' src='img/atracoes/".$ba[$i]['banner']."'></center></td>
 	      			<td>
 	      				<a style='color: red; text-decoration: none;' href='dellB.php?id=".$ba[$i]['id']."'>Excluir</a>
 	      			</td>

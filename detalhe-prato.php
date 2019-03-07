@@ -53,13 +53,12 @@
 </head>
 <body style="background-color: tomato;">
 	<div class="cont">
-		<div style="background-color: tomato; margin-top: -40%;">
+		<div style="background-color: tomato;">
 
 		</div>
 		<div>
 
 			<?php
-
 	                echo '
 	                <center>
 						<h2 style="font-family: arial; color: white;">'.$prato["nome_comida"].'</h2>
